@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<title>Página principal - Testar</title>
+</head>
+
+
+
+<body class="d-flex flex-column h-100">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+    <a class="navbar-brand" href="index.html">Inicio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">       
+        <li class="nav-item">
+          <a class="nav-link" href="info.html">Información</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="docs/index.html">Documentación</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contacto.html">Contacto</a>
+        </li>
+      </ul>
+      <a class="form-inline mt-2 mt-md-0" href="registroView.jsp">Registrate</a>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1">
+    <img id="foto1" class="mx-auto d-block" src=images/logo_testar.png alt="Logo Testar" width=128 height=64>
+
+    <div class="form-group" id="searchDiv" align="center">
+      <form id="searchForm" action="SearchController" method="post">
+        <input type="text" class="form-control" name="searchQuery" required /><br> 
+        <input type="submit" class="btn btn-default" name="searchBtn" title="search" value="search">
+      </form>
+    </div>
+  </main>    
+    
+
+  <footer class="container-fluid bg-4 text-center">
+    <p>Página web hecha por alumnos de la Universidad de Sevilla para la asignatura Arquitectura e Integración de Sistemas Software</p>
+  <!-- <a href="http://www.freepik.com">designed by Freepik</a> -->
+  </footer>
+</body>
+</html>

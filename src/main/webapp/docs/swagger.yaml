@@ -1,0 +1,139 @@
+swagger: "2.0"
+info:
+  description: API Testar
+  version: 1.0.0
+  title: API Testar
+  
+  contact:
+    email: jorruirui1@alum.us.es
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+tags:
+  - name: User
+    description: Métodos relacionados con los usuarios
+
+paths:
+  /users:
+    get:
+      tags:
+        - User
+      summary: Devuelve una lista de usuarios
+      operationId: getAllUsers
+      produces:
+        - application/json
+      responses:
+        200: 
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: BAD REQUEST
+
+  /users/{userID}:
+    get:
+      tags:
+      - User
+      summary: Muestra la información de un usuario
+      operationId: get
+      parameters:
+        - name: userID
+          in: path
+          description: id del usuario
+          required: true
+          type: string
+      produces:
+      - application/json
+      responses:
+        200: 
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: The user ID must not be null
+        404:
+          description: Unable to find the user with ID
+    
+    post:
+      tags:
+        - User
+      summary: Añade un usuario con un nombre de usuario determinado
+      operationId: addUser
+      parameters:
+        - name: userID
+          in: path
+          description: id del usuario
+          required: true
+          type: string
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      responses:
+        200: 
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: BAD REQUEST
+          
+    put:
+      tags:
+        - User
+      summary: Actualiza la información del usuario
+      parameters:
+        - name: userID
+          in: path
+          description: id del usuario
+          required: true
+          type: string
+      consumes:
+      - application/json
+      responses:
+        204:
+          description: NO CONTENT
+        400:
+          description: BAD REQUEST
+        404:
+          description: The user was not found
+        409:
+          description: CONFLICT
+    
+    delete:
+      tags:
+        - User
+      summary: Borra al usuario de la página
+      parameters:
+        - name: userID
+          in: path
+          description: id del usuario
+          required: true
+          type: string      
+      responses:
+        204:
+          description: NO CONTENT
+        404:
+          description: The user was not found
+
+definitions:
+  User:
+    type: object
+    required: 
+      - userID
+      - edad
+      - nickname
+    properties:
+      userID:
+        type: string
+        example: '47352Hsvfka3736'
+      edad:
+        type: number
+        example: '35'
+      nickname:
+        type: string
+        example: 'nombreUsuario'
+           
+host: testar-aiss.appspot.com
+basePath: /api/
